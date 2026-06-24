@@ -37,7 +37,7 @@ Three aligned views of the data are built:
 - **origin_data**: collection of ordered phrase
 - **shuffle_data**: collection of shuffled phrase
 - **shift_data**: collection of ordered phrase without the *\<start>* token. So it is similar to original data but is shifted by one. This data collection is used in order to implement *Teacher Forcing* and try to increase the quality of the result.
-- 
+
 All sequences are padded to length 28, and the corresponding padding masks are computed.
 
 ## Model
