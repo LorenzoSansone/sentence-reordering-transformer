@@ -54,7 +54,7 @@ The three aligned views of the data (original, shuffled and shifted):
   <img src="assets/images/example_data1.PNG" alt="Accuracy and loss curves" width="700">
 </p>
 
-*The three aligned views fed to the model: the original sentence, the shuffled version (input) and the shifted target used for Teacher Forcing.*
+*The three aligned views fed to the model: the original sentence, the shuffled version and the shifted target used for Teacher Forcing.*
 
 ## Model
 
