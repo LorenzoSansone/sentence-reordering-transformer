@@ -81,7 +81,7 @@ The model is an **encoder–decoder Transformer**, built with `keras_nlp` layers
 
 Training stopped early after **13 epochs**, reaching a validation categorical accuracy of about **0.91**. The trained weights are saved to `final_model.h5 (generated after the first run of the notebook)`.
 
-Accuracy and loss curves for the training and validation phases
+Accuracy and loss curves for the training and validation phases:
 
 <p align="center">
   <img src="assets/images/training_graph.png" alt="Accuracy and loss curves" width="900">
