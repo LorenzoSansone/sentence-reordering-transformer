@@ -54,7 +54,7 @@ The three aligned views of the data (original, shuffled and shifted):
   <img src="assets/images/example_data1.PNG" alt="Accuracy and loss curves" width="700">
 </p>
 
-*The three aligned views fed to the model: the original sentence, the shuffled version (input), and the shifted target used for Teacher Forcing.*
+*The three aligned views fed to the model: the original sentence, the shuffled version (input) and the shifted target used for Teacher Forcing.*
 
 ## Model
 
@@ -81,7 +81,7 @@ The model is an **encoder–decoder Transformer**, built with `keras_nlp` layers
 
 Training stopped early after **13 epochs**, reaching a validation categorical accuracy of about **0.91**. The trained weights are saved to `final_model.h5 (generated after the first run of the notebook)`.
 
-[Accuracy and loss curves for the training and validation phases
+Accuracy and loss curves for the training and validation phases
 
 <p align="center">
   <img src="assets/images/training_graph.png" alt="Accuracy and loss curves" width="900">
@@ -115,7 +115,7 @@ Sample predictions on the test set with their per-sentence scores:
   <img src="assets/images/prediction.PNG" alt="Accuracy and loss curves" width="700">
 </p>
 
-*each preditcion shown with its original sentence, shuffled input, predicted reordering and score.*
+*Each preditcion shown with its original sentence, shuffled input, predicted reordering and score.*
 
 ## Usage
 
