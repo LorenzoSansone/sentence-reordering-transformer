@@ -30,6 +30,14 @@ Sentences are taken from the **`generics_kb`** dataset (Hugging Face). The data 
 
 **Split (sentences):** ~220000 training / 17984 validation / 3232 test.
 
+Example of ordered sentences and their shuffled versions produced by the DataGenerator:
+
+<p align="center">
+  <img src="assets/images/example_data.PNG" alt="Accuracy and loss curves" width="900">
+</p>
+
+*the `<start>`/`<end>` markers stay in place.*
+
 ## Preprocessing for the model
 
 Three aligned views of the data are built:
@@ -39,6 +47,14 @@ Three aligned views of the data are built:
 - **shift_data**: collection of ordered phrase without the *\<start>* token. So it is similar to original data but is shifted by one. This data collection is used in order to implement *Teacher Forcing* and try to increase the quality of the result.
 
 All sequences are padded to length 28, and the corresponding padding masks are computed.
+
+The three aligned views of the data (original, shuffled and shifted):
+
+<p align="center">
+  <img src="assets/images/example_data1.PNG" alt="Accuracy and loss curves" width="700">
+</p>
+
+*The three aligned views fed to the model: the original sentence, the shuffled version (input), and the shifted target used for Teacher Forcing.*
 
 ## Model
 
@@ -65,6 +81,14 @@ The model is an **encoder–decoder Transformer**, built with `keras_nlp` layers
 
 Training stopped early after **13 epochs**, reaching a validation categorical accuracy of about **0.91**. The trained weights are saved to `final_model.h5 (generated after the first run of the notebook)`.
 
+[Accuracy and loss curves for the training and validation phases
+
+<p align="center">
+  <img src="assets/images/training_graph.png" alt="Accuracy and loss curves" width="900">
+</p>
+ 
+*Training and validation accuracy (left) and loss (right) over the 13 epochs; the best epoch is highlighted.*
+
 ## Inference
 
 Predictions are generated **autoregressively** (`predictSequences`): starting from `<start>`, the model predicts one token at a time and feeds it back, until `<end>` (or padding) is produced for the whole batch. The output is then cleaned of special tokens (`cleanData`).
@@ -84,6 +108,14 @@ It is computed with `difflib.SequenceMatcher`.
 - **Mean score: ≈ 0.523** (over 3,000 test samples).
 
 An initial attempt with an **LSTM encoder–decoder** produced a much lower score, which motivated the switch to the Transformer architecture.
+
+Sample predictions on the test set with their per-sentence scores:
+
+<p align="center">
+  <img src="assets/images/prediction.PNG" alt="Accuracy and loss curves" width="700">
+</p>
+
+*each preditcion shown with its original sentence, shuffled input, predicted reordering and score.*
 
 ## Usage
 
